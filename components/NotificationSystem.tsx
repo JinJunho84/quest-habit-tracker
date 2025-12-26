@@ -15,7 +15,7 @@ const NotificationSystem: React.FC<NotificationSystemProps> = ({ notifications }
           className={`
             max-w-xs mx-auto p-4 rounded-xl border-2 shadow-2xl animate-in slide-in-from-top-10 duration-500 fade-in
             ${notif.type === 'level-up' ? 'bg-yellow-500 border-yellow-300 text-slate-950' : 'bg-slate-900/95 border-indigo-500 text-white'}
-            backdrop-blur-md pointer-events-auto
+            backdrop-blur-md pointer-events-auto transition-all duration-300
           `}
         >
           <div className="flex items-start gap-3">
@@ -28,9 +28,9 @@ const NotificationSystem: React.FC<NotificationSystemProps> = ({ notifications }
               {notif.type === 'info' && <span className="text-lg">⚔️</span>}
               {notif.type === 'alert' && <span className="text-lg">⚠️</span>}
             </div>
-            <div>
-              <h4 className="font-bold text-sm uppercase tracking-tight leading-none mb-1">{notif.title}</h4>
-              <p className="text-xs opacity-90 leading-tight">{notif.message}</p>
+            <div className="flex-1 min-w-0">
+              <h4 className="font-bold text-sm uppercase tracking-tight leading-none mb-1 truncate">{notif.title}</h4>
+              <p className="text-xs opacity-90 leading-tight line-clamp-2">{notif.message}</p>
             </div>
           </div>
         </div>

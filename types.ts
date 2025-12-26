@@ -3,6 +3,8 @@ export interface QuestStep {
   id: string;
   title: string;
   description: string;
+  recommendation: string; // Detailed advice on how to perform this specific step
+  overdueStrategy?: string; // AI-generated catch-up advice if step is missed
   isCompleted: boolean;
   scheduledAt: string; // ISO string
   durationMinutes: number;
@@ -31,6 +33,7 @@ export interface UserStats {
 
 export interface Notification {
   id: string;
+  questId?: string; // Optional ID to associate notification with a specific quest
   title: string;
   message: string;
   type: 'info' | 'reminder' | 'level-up' | 'alert';
